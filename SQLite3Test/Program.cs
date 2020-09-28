@@ -15,7 +15,7 @@ namespace SQLite3Test
             connectDB.OpenConnection();
 
             ReadDB();
-            ChangeDB();
+            ChangeDB(4, 700, "Date");
             ReadDB();
 
             connectDB.CloseConnection();
@@ -42,10 +42,10 @@ namespace SQLite3Test
 
             }
         }
-        private static void ChangeDB()
+        private static void ChangeDB(long id, long number, string column)
         {
-            var command = new SQLiteCommand("UPDATE PeopleToday SET Date = '800' WHERE Id = 4; ", connectDB.connect);
-            command.Parameters.AddWithValue("@id", 4);
+            var command = new SQLiteCommand($"UPDATE PeopleToday SET {column} = '{number}' WHERE Id = {id}; ", connectDB.connect);
+            command.Parameters.AddWithValue("@id", id);
             command.Parameters.AddWithValue("@Name", "Lara");
             command.Parameters.AddWithValue("@App", "DrakeHub");
             command.Parameters.AddWithValue("@Date", 900);
