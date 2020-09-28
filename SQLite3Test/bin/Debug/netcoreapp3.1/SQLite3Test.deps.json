@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v3.1": {
       "SQLite3Test/1.0.0": {
         "dependencies": {
+          "System.Data.DB2.EntityFramework.Migrations": "6.0.0",
           "System.Data.SQLite": "1.0.113.1"
         },
         "runtime": {
@@ -30,6 +31,14 @@
           "lib/netstandard2.1/EntityFramework.dll": {
             "assemblyVersion": "6.0.0.0",
             "fileVersion": "6.300.19.46401"
+          }
+        }
+      },
+      "EntityFramework.IBM.DB2/6.0.6": {
+        "runtime": {
+          "lib/net40/IBM.Data.DB2.EntityFramework.dll": {
+            "assemblyVersion": "10.5.5.6",
+            "fileVersion": "10.5.5.4"
           }
         }
       },
@@ -112,6 +121,18 @@
           "lib/netstandard2.0/System.Configuration.ConfigurationManager.dll": {
             "assemblyVersion": "4.0.2.0",
             "fileVersion": "4.700.19.46214"
+          }
+        }
+      },
+      "System.Data.DB2.EntityFramework.Migrations/6.0.0": {
+        "dependencies": {
+          "EntityFramework": "6.3.0",
+          "EntityFramework.IBM.DB2": "6.0.6"
+        },
+        "runtime": {
+          "lib/System.Data.DB2.EntityFramework.Migrations.dll": {
+            "assemblyVersion": "1.0.103.0",
+            "fileVersion": "1.0.103.0"
           }
         }
       },
@@ -304,6 +325,13 @@
       "path": "entityframework/6.3.0",
       "hashPath": "entityframework.6.3.0.nupkg.sha512"
     },
+    "EntityFramework.IBM.DB2/6.0.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Gexsqc/O6fH8y4e+fdOv45NPFMJiMoYRte8ZlYrTOB58QMcixr5n0CX6mwbihfh2qTD+NDUAFdV2tnPaFyL5Nw==",
+      "path": "entityframework.ibm.db2/6.0.6",
+      "hashPath": "entityframework.ibm.db2.6.0.6.nupkg.sha512"
+    },
     "Microsoft.CSharp/4.6.0": {
       "type": "package",
       "serviceable": true,
@@ -380,6 +408,13 @@
       "sha512": "sha512-gkNklXxdmB3r4SQTUzRhESZAb3MotgDz24XYi2R/bIjJ10SF0KHJ/qTEwi9CLyIAOTjmCo8Vx8+rKldLaiW7Ig==",
       "path": "system.configuration.configurationmanager/4.6.0",
       "hashPath": "system.configuration.configurationmanager.4.6.0.nupkg.sha512"
+    },
+    "System.Data.DB2.EntityFramework.Migrations/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UN0FTdl83IkE/uVzqXk3Dh2TniONPi0H5cIWxZHiIu4lZJSXhL1eZMUo+rxgPQ2KpBZpxqC3ZEhFqVpuPiiFJw==",
+      "path": "system.data.db2.entityframework.migrations/6.0.0",
+      "hashPath": "system.data.db2.entityframework.migrations.6.0.0.nupkg.sha512"
     },
     "System.Data.SqlClient/4.7.0": {
       "type": "package",
