@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Data.SQLite;
-
+using System.Data.SQLite.EF6;
 
 namespace SQLite3Test
 {
@@ -14,9 +14,20 @@ namespace SQLite3Test
 
             connectDB.OpenConnection();
 
+            using(LibraryContext context = new LibraryContext())
+            {
+                today.id = 5;
+                today.name = "Georg";
+                today.app = "Georges";
+                today.date = 2100;
+
+                context.peopleTodays.Add(today);
+                context.SaveChanges();
+            }
+
             ReadDB();
-            ChangeDB(4, 700, "Date");
-            ReadDB();
+            //ChangeDB(4, 700, "Date");
+            //ReadDB();
 
             connectDB.CloseConnection();
         }
@@ -37,9 +48,7 @@ namespace SQLite3Test
                         date = (long)result["Date"]
                     };
                     today.Message();
-
                 }
-
             }
         }
         private static void ChangeDB(long id, long number, string column)

@@ -43,3 +43,5 @@ C:\Users\1\source\repos\SQLite3Test\SQLite3Test\obj\Debug\netcoreapp3.1\SQLite3T
 C:\Users\1\source\repos\SQLite3Test\SQLite3Test\obj\Debug\netcoreapp3.1\SQLite3Test.genruntimeconfig.cache
 C:\Users\1\source\repos\SQLite3Test\SQLite3Test\bin\Debug\netcoreapp3.1\IBM.Data.DB2.EntityFramework.dll
 C:\Users\1\source\repos\SQLite3Test\SQLite3Test\bin\Debug\netcoreapp3.1\System.Data.DB2.EntityFramework.Migrations.dll
+C:\Users\1\source\repos\SQLite3Test\SQLite3Test\obj\Debug\netcoreapp3.1\SQLite3Test.csproj.CoreCompileInputs.cache
+C:\Users\1\source\repos\SQLite3Test\SQLite3Test\bin\Debug\netcoreapp3.1\SQLite3Test.dll.config
