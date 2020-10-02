@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Data.SQLite;
+using System.Data.SQLite.EF6;
 using System.Data;
 using System.IO;
+using System.Data.SQLite;
 
 namespace SQLite3Test
 {
