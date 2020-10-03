@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище mainModel" Provider="System.Data.SQLite.EF6" ProviderManifestToken="Data Source=&quot;C:\Users\1\source\repos\SQLiteTest Form\SQLiteTest Form\PeopleList1.db&quot;" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "main.PeopleToday" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="PeopleToday">
+          <Property Name="Id" Type="integer" />
+          <Property Name="Name" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="App" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Date" Type="integer" />
+        </EntityType>-->
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "main.PeopleToday 1" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="PeopleToday 1">
+          <Property Name="Id" Type="integer" />
+          <Property Name="Name" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="App" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Date" Type="integer" />
+        </EntityType>-->
+  <EntityContainer Name="Хранилище mainModelContainer" />
+</Schema>
