@@ -11,6 +11,11 @@ namespace SQLite3Test
         {
 
         }
-        public DbSet<PeopleToday> peopleTodays { get; set; }
+        public DbSet<PeopleToday> PeopleToday { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<PeopleToday>().ToTable("PeopleToday");
+        }
     }
 }

@@ -9,34 +9,37 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace SQLiteTest_Form
 {
-    static class Program
+    public static class Program
     {
-        static string Path = "Data Source=D:/Desktop/SQLite/sqlite-tools-win32-x86-3330000/PeopleList.sqlite3";
+        static string Path = "Data Source=C:/Users/1/source/repos/SQLiteTest Form/SQLiteTest Form/bin/Debug/PeopleList1.db";
 
         static ConnectDB connectDB;
+        static PeopleToday today = new PeopleToday();
+
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
 
             connectDB = new ConnectDB(Path);
 
-           // ReadDB();
+            //ReadDB();
 
             using (LibraryContext context = new LibraryContext())
             {
-                PeopleToday today = new PeopleToday();
+                
+                context.PeopleToday.Add(today);
 
-                today.app = "intelligentsiaOnline";
-                today.name = "Victoria";
-                today.id = 5;
-                today.date = 2000;
-
-                context.peopleTodays.Add(today);
-                context.SaveChanges();
+                today.id = context.PeopleToday.First().id;
+                today.name = context.PeopleToday.First().name;
+                today.app = context.PeopleToday.First().app;
+                today.date = context.PeopleToday.First().date;
+                today.coordinate = context.PeopleToday.First().coordinate;
+                
             }
+            Application.Run(new Form1(){ name = today.coordinate });
+
         }
         private static void ReadDB()
         {
@@ -48,13 +51,13 @@ namespace SQLiteTest_Form
             {
                 while (result.Read())
                 {
-                    //today = new PeopleToday()
-                    //{
-                    //    id = (long)result["Id"],
-                    //    name = result["Name"].ToString(),
-                    //    app = result["App"].ToString(),
-                    //    date = (long)result["Date"]
-                    //};
+                    today = new PeopleToday()
+                    {
+                        id = (long)result["Id"],
+                        name = result["Name"].ToString(),
+                        app = result["App"].ToString(),
+                        date = (long)result["Date"]
+                    };
 
                 }
                 
@@ -64,7 +67,7 @@ namespace SQLiteTest_Form
 
         private static void ChangeDB(long id, long number, string column)
         {
-            var command = new SQLiteCommand($"UPDATE PeopleToday SET {column} = '{number}' WHERE Id = {id}; ", connectDB.connect);
+            var command = new SQLiteCommand($"INSERT INTO PeopleToday VALUES ", connectDB.connect);
             
             connectDB.OpenConnection();
             

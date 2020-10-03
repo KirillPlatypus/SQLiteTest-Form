@@ -12,9 +12,17 @@ namespace SQLiteTest_Form
 {
     public partial class Form1 : Form
     {
+        internal long name { get; set; }
+
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            rows2.Text = $"{name}";
+
         }
     }
 }

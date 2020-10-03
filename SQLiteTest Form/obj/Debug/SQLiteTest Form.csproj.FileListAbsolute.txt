@@ -18,3 +18,4 @@ C:\Users\1\source\repos\SQLiteTest Form\SQLiteTest Form\obj\Debug\SQLiteTest For
 C:\Users\1\source\repos\SQLiteTest Form\SQLiteTest Form\obj\Debug\SQLiteTest Form.exe
 C:\Users\1\source\repos\SQLiteTest Form\SQLiteTest Form\obj\Debug\SQLiteTest Form.pdb
 C:\Users\1\source\repos\SQLiteTest Form\SQLiteTest Form\bin\Debug\System.Data.SQLite.EF6.Migrations.dll
+C:\Users\1\source\repos\SQLiteTest Form\SQLiteTest Form\obj\Debug\SQLiteTest_Form.Form1.resources

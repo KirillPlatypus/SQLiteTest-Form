@@ -17,7 +17,7 @@ namespace SQLite3Test
             connect = new SQLiteConnection(path);
             if (!File.Exists(path))
             {
-                SQLiteConnection.CreateFile("PeopleList.sqlite3");
+                //SQLiteConnection.CreateFile("PeopleList1.db");
             }
         }
 
