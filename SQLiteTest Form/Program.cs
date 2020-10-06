@@ -59,10 +59,10 @@ namespace SQLiteTest_Form
                 {
                     today = new PeopleToday()
                     {
-                        id = (string)result["Id"],
+                        id = (long)result["Id"],
                         name = result["Name"].ToString(),
                         app = result["App"].ToString(),
-                        date = (string)result["Date"]
+                        date = (long)result["Date"]
                     };
 
                 }
