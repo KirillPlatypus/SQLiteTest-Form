@@ -7,10 +7,9 @@ namespace SQLite3Test
 {
     class PeopleToday
     {
-        public long id { get; set; }
+        public string id { get; set; }
         public string name { get; set; }
         public string app { get; set; }
-        public long coordinate { get; set; }  
-        public long date { get; set; }  
+        public string date { get; set; }  
     }
 }

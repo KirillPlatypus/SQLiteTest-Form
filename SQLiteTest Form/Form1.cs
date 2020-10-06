@@ -12,8 +12,8 @@ namespace SQLiteTest_Form
 {
     public partial class Form1 : Form
     {
-        internal long name { get; set; }
-
+        internal string name { get; set; }
+        
         public Form1()
         {
             InitializeComponent();

@@ -35,16 +35,22 @@ namespace SQLiteTest_Form
                 today.name = context.PeopleToday.First().name;
                 today.app = context.PeopleToday.First().app;
                 today.date = context.PeopleToday.First().date;
-                today.coordinate = context.PeopleToday.First().coordinate;
-                
+                try
+                {
+                    context.SaveChanges();
+                }
+                catch (System.Data.Entity.Infrastructure.DbUpdateConcurrencyException)
+                {
+                    today.name = "Error";
+                }
             }
-            Application.Run(new Form1(){ name = today.coordinate });
+            Application.Run(new Form1(){ name = today.name });
 
         }
         private static void ReadDB()
         {
             var command = new SQLiteCommand("SELECT * FROM PeopleToday", connectDB.connect);
-
+             
             connectDB.OpenConnection();
             var result = command.ExecuteReader();
             if (result.HasRows)
@@ -53,10 +59,10 @@ namespace SQLiteTest_Form
                 {
                     today = new PeopleToday()
                     {
-                        id = (long)result["Id"],
+                        id = (string)result["Id"],
                         name = result["Name"].ToString(),
                         app = result["App"].ToString(),
-                        date = (long)result["Date"]
+                        date = (string)result["Date"]
                     };
 
                 }
