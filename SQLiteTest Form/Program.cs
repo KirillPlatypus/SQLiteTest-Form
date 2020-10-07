@@ -24,26 +24,10 @@ namespace SQLiteTest_Form
 
             connectDB = new ConnectDB(Path);
 
-            //ReadDB();
+            ReadDB();
 
-            using (LibraryContext context = new LibraryContext())
-            {
-                
-                context.PeopleToday.Add(today);
+            //AnotherReadDB();
 
-                today.id = context.PeopleToday.First().id;
-                today.name = context.PeopleToday.First().name;
-                today.app = context.PeopleToday.First().app;
-                today.date = context.PeopleToday.First().date;
-                try
-                {
-                    context.SaveChanges();
-                }
-                catch (System.Data.Entity.Infrastructure.DbUpdateConcurrencyException)
-                {
-                    today.name = "Error";
-                }
-            }
             Application.Run(new Form1(){ name = today.name });
 
         }
@@ -69,6 +53,27 @@ namespace SQLiteTest_Form
                 
             }
             connectDB.CloseConnection();
+        }
+        private static void AnotherReadDB()
+        {
+            using (LibraryContext context = new LibraryContext())
+            {
+
+                context.PeopleToday.Add(today);
+
+                today.id = context.PeopleToday.First().id;
+                today.name = context.PeopleToday.First().name;
+                today.app = context.PeopleToday.First().app;
+                today.date = context.PeopleToday.First().date;
+                try
+                {
+                    context.SaveChanges();
+                }
+                catch (System.Data.Entity.Infrastructure.DbUpdateConcurrencyException)
+                {
+                    today.name = "Error";
+                }
+            }
         }
 
         private static void ChangeDB(long id, long number, string column)
