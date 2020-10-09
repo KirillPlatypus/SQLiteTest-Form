@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.rows2 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -42,21 +42,21 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // rows2
+            // textBox2
             // 
-            this.rows2.AutoSize = true;
-            this.rows2.Location = new System.Drawing.Point(346, 204);
-            this.rows2.Name = "rows2";
-            this.rows2.Size = new System.Drawing.Size(30, 17);
-            this.rows2.TabIndex = 1;
-            this.rows2.Text = "row\r\n";
+            this.textBox2.Location = new System.Drawing.Point(12, 12);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(526, 352);
+            this.textBox2.TabIndex = 2;
             // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(754, 464);
-            this.Controls.Add(this.rows2);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -76,7 +76,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label rows2;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 

@@ -1,4 +1,5 @@
 ﻿using SQLite3Test;
+using SQLiteTest_Form.DB;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
@@ -13,8 +14,10 @@ namespace SQLiteTest_Form
     {
         static string Path = "Data Source=C:/Users/1/source/repos/SQLiteTest Form/SQLiteTest Form/bin/Debug/PeopleList1.db";
 
-        static ConnectDB connectDB;
+        static ConnectDB connectDB = new ConnectDB(Path);
         static PeopleToday today = new PeopleToday();
+        static Command<string> command = new Command<string>(connectDB);
+        static Command<long> commandInt = new Command<long>(connectDB);
 
         [STAThread]
         static void Main()
@@ -22,73 +25,18 @@ namespace SQLiteTest_Form
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            connectDB = new ConnectDB(Path);
+            today.id = commandInt.ReadDB("Id")[0];
+            today.name = command.ReadDB("Name")[0];
+            today.app = command.ReadDB("App")[1];
+            today.date = commandInt.ReadDB("Date")[0];
 
-            ReadDB();
-
-            //AnotherReadDB();
-
-            Application.Run(new Form1(){ name = today.name });
-
-        }
-        private static void ReadDB()
-        {
-            var command = new SQLiteCommand("SELECT * FROM PeopleToday", connectDB.connect);
-             
-            connectDB.OpenConnection();
-            var result = command.ExecuteReader();
-            if (result.HasRows)
+            Application.Run(new Form1()
             {
-                while (result.Read())
-                {
-                    today = new PeopleToday()
-                    {
-                        id = (long)result["Id"],
-                        name = result["Name"].ToString(),
-                        app = result["App"].ToString(),
-                        date = (long)result["Date"]
-                    };
-
-                }
-                
-            }
-            connectDB.CloseConnection();
-        }
-        private static void AnotherReadDB()
-        {
-            using (LibraryContext context = new LibraryContext())
-            {
-
-                context.PeopleToday.Add(today);
-
-                today.id = context.PeopleToday.First().id;
-                today.name = context.PeopleToday.First().name;
-                today.app = context.PeopleToday.First().app;
-                today.date = context.PeopleToday.First().date;
-                try
-                {
-                    context.SaveChanges();
-                }
-                catch (System.Data.Entity.Infrastructure.DbUpdateConcurrencyException)
-                {
-                    today.name = "Error";
-                }
-            }
-        }
-
-        private static void ChangeDB(long id, long number, string column)
-        {
-            var command = new SQLiteCommand($"INSERT INTO PeopleToday VALUES ", connectDB.connect);
-            
-            connectDB.OpenConnection();
-            
-            command.Parameters.AddWithValue("@id", id);
-            command.Parameters.AddWithValue("@Name", "Lara");
-            command.Parameters.AddWithValue("@App", "DrakeHub");
-            command.Parameters.AddWithValue("@Date", 900);
-
-            command.ExecuteReader();
-            connectDB.CloseConnection();
+                name = $"{today.id} " +
+                       $"{today.name} " +
+                       $"{today.app} " +
+                       $"{today.date} "
+            });
         }
     }
 }
