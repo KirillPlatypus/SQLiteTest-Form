@@ -19,12 +19,12 @@ namespace SQLiteTest_Form
             InitializeComponent();
         }
 
-        public string name { get; set; }
+        public string massege { get; set; }
 
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            textBox2.Text = $"{name}";
+            textBox2.Text = $"{massege}";
 
         }
 

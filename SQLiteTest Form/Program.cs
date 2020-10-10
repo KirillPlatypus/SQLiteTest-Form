@@ -16,26 +16,28 @@ namespace SQLiteTest_Form
 
         static ConnectDB connectDB = new ConnectDB(Path);
         static PeopleToday today = new PeopleToday();
-        static Command<string> command = new Command<string>(connectDB);
-        static Command<long> commandInt = new Command<long>(connectDB);
+        static Command command = new Command(connectDB);
+        static LibraryContext commandC = new LibraryContext();
 
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            today.id = commandInt.ReadDB("Id")[0];
-            today.name = command.ReadDB("Name")[0];
-            today.app = command.ReadDB("App")[1];
-            today.date = commandInt.ReadDB("Date")[0];
+            
+            today.id = Command.Read<long>.ReadDB("Id")[0];
+            today.name = Command.Read<string>.ReadDB("Name")[0];
+            today.app = Command.Read<string>.ReadDB("App")[0];
+            today.coordinate = Command.Read<string>.ReadDB("Coordinate")[0];
+            today.date = Command.Read<long>.ReadDB("Date")[0];
 
             Application.Run(new Form1()
             {
-                name = $"{today.id} " +
-                       $"{today.name} " +
-                       $"{today.app} " +
-                       $"{today.date} "
+                massege = $"{today.id} " +
+                       $" {today.name} " +
+                       $" {today.app} " +
+                       $" {today.coordinate} " +
+                       $" {today.date} \n"
             });
         }
     }
