@@ -28,7 +28,7 @@ namespace SQLiteTest_Form
             today.id = Command.Read<long>.ReadDB("Id")[0];
             today.name = Command.Read<string>.ReadDB("Name")[0];
             today.app = Command.Read<string>.ReadDB("App")[0];
-            today.coordinate = Command.Read<string>.ReadDB("Coordinate")[0];
+            today.coordinate = Command.Read<string>.ReadDB("Coordinate")[2];
             today.date = Command.Read<long>.ReadDB("Date")[0];
 
             Application.Run(new Form1()

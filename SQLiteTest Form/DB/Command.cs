@@ -46,7 +46,11 @@ namespace SQLiteTest_Form.DB
                                 }
                                 else
                                 {
-                                    Change.ChangeDB(i, 200, nameColumn);
+                                    
+                                    Change.ChangeDB(1, 200, nameColumn);
+                                    Change.ChangeDB(2, 500, nameColumn);
+                                    Change.ChangeDB(3, 1000, nameColumn);
+                                    Change.ChangeDB(4, 600, nameColumn);
                                 }
                             }
                             catch (System.IndexOutOfRangeException)
@@ -103,7 +107,7 @@ namespace SQLiteTest_Form.DB
 
                     var result = command.ExecuteReader();
 
-                    ConnectDB.CloseConnection();
+                    //ConnectDB.CloseConnection();
                 }
             }
         }
