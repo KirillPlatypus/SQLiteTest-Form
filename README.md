@@ -1,3 +1,3 @@
 # SQLiteTest-Form
 
-Test SQlite Db with Entity Framework
+Test SQlite Db with Entity Framework and without him
