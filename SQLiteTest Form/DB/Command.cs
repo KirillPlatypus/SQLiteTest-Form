@@ -5,13 +5,14 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace SQLiteTest_Form.DB
 {
     class Command
     {
         static ConnectDB ConnectDB;
-
+        static PeopleToday todays = new PeopleToday();
         public Command(ConnectDB connectDB)
         {
            ConnectDB = connectDB;
@@ -47,10 +48,10 @@ namespace SQLiteTest_Form.DB
                                 else
                                 {
                                     
-                                    Change.ChangeDB(1, 200, nameColumn);
-                                    Change.ChangeDB(2, 500, nameColumn);
-                                    Change.ChangeDB(3, 1000, nameColumn);
-                                    Change.ChangeDB(4, 600, nameColumn);
+                                    Change<PeopleToday>.Update(1, 0, nameColumn);
+                                    Change<PeopleToday>.Update(2, 0, nameColumn);
+                                    Change<PeopleToday>.Update(3, 0, nameColumn);
+                                    Change<PeopleToday>.Update(4, 0, nameColumn);
                                 }
                             }
                             catch (System.IndexOutOfRangeException)
@@ -68,31 +69,39 @@ namespace SQLiteTest_Form.DB
             }
 
 
-            //public void AnotherReadDB()
-            //{
-            //    using (LibraryContext context = new LibraryContext())
-            //    {
+            public static List<PeopleToday> AnotherReadDB(PeopleToday today)
+            {
+                using (LibraryContext context = new LibraryContext())
+                {
 
-            //        context.PeopleToday.Add(today[0]);
+                    context.PeopleToday.Add(today);
+                    
+                    try
+                    {
+                        context.SaveChanges();
+                    }
+                    catch (System.Data.Entity.Infrastructure.DbUpdateConcurrencyException)
+                    {
+                       
+                    }
+                    catch(System.Data.Entity.Infrastructure.DbUpdateException) 
+                    {
+                        ConnectDB.OpenConnection();
 
-            //        today.id = context.PeopleToday.First().id;
-            //        today.name = context.PeopleToday.First().name;
-            //        today.app = context.PeopleToday.First().app;
-            //        today.date = context.PeopleToday.First().date;
-            //        try
-            //        {
-            //            context.SaveChanges();
-            //        }
-            //        catch (System.Data.Entity.Infrastructure.DbUpdateConcurrencyException)
-            //        {
-            //            today.name = "Error";
-            //        }
-            //    }
-            //}
+                        var commandALT = new SQLiteCommand($"ALTER TABLE PeopleToday\n ADD COLUMN coordinate text;", ConnectDB.connect);
+                        var resultALT = commandALT.ExecuteReader();
+                        ConnectDB.CloseConnection();
+
+                    }
+                    return context.PeopleToday.ToList();
+                }
+                
+            }
+            
         }
-        public static class Change
+        public static class Change<T>
         {
-            public static void ChangeDB(long id, long number, string column)
+            public static void Update(long id, long number, string column)
             {
                 using (var command = new SQLiteCommand($"UPDATE PeopleToday SET {column} = '{number}' WHERE Id = {id}; ", ConnectDB.connect))
                 {
@@ -110,6 +119,25 @@ namespace SQLiteTest_Form.DB
                     //ConnectDB.CloseConnection();
                 }
             }
+            public static void Insert(long id, T number, string column)
+            {
+                using (var command = new SQLiteCommand($"INSERT INTO PeopleToday ({column}) VALUES ('{number}'); ", ConnectDB.connect))
+                {
+
+                    ConnectDB.OpenConnection();
+
+                    //command.Parameters.AddWithValue("@Id", id);
+                    //command.Parameters.AddWithValue("@Name", "Lara");
+                    //command.Parameters.AddWithValue("@App", "DrakeHub");
+                    //command.Parameters.AddWithValue($"@{column}", number.ToString());
+                    //command.Parameters.AddWithValue("@Date", 900);
+
+                    var result = command.ExecuteReader();
+
+                    ConnectDB.CloseConnection();
+                }
+            }
+
         }
     }
 }

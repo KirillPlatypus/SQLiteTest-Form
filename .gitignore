@@ -1,10 +1,4 @@
 .vs/
 
-.config
-
-.pdb
-
-.cache
-
-.vs
-config
+*.pdb
+*.db-journal
