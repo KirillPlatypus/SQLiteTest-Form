@@ -12,7 +12,7 @@ namespace SQLiteTest_Form
 {
     public static class Program
     {
-        static string Path = "Data Source=C:/Users/1/source/repos/SQLiteTest Form/SQLiteTest Form/bin/Debug/PeopleList1.db";
+        static string Path = "Data Source=C:/Users/1/source/repos/SQLiteTest Form/SQLiteTest-Form-master/SQLiteTest Form/bin/Debug/PeopleList1.db";
 
         static ConnectDB connectDB = new ConnectDB(Path);
         static PeopleToday today = new PeopleToday();

@@ -19,3 +19,45 @@ C:\Users\1\source\repos\SQLiteTest Form\SQLiteTest Form\obj\Debug\SQLiteTest For
 C:\Users\1\source\repos\SQLiteTest Form\SQLiteTest Form\obj\Debug\SQLiteTest Form.pdb
 C:\Users\1\source\repos\SQLiteTest Form\SQLiteTest Form\bin\Debug\System.Data.SQLite.EF6.Migrations.dll
 C:\Users\1\source\repos\SQLiteTest Form\SQLiteTest Form\obj\Debug\SQLiteTest_Form.Form1.resources
+D:\Desktop\ClonedProject\SQLiteTest Form\bin\Debug\SQLiteTest Form.exe.config
+D:\Desktop\ClonedProject\SQLiteTest Form\bin\Debug\SQLiteTest Form.exe
+D:\Desktop\ClonedProject\SQLiteTest Form\bin\Debug\SQLiteTest Form.pdb
+D:\Desktop\ClonedProject\SQLiteTest Form\bin\Debug\EntityFramework.dll
+D:\Desktop\ClonedProject\SQLiteTest Form\bin\Debug\EntityFramework.SqlServer.dll
+D:\Desktop\ClonedProject\SQLiteTest Form\bin\Debug\System.Data.SQLite.dll
+D:\Desktop\ClonedProject\SQLiteTest Form\bin\Debug\System.Data.SQLite.EF6.dll
+D:\Desktop\ClonedProject\SQLiteTest Form\bin\Debug\System.Data.SQLite.EF6.Migrations.dll
+D:\Desktop\ClonedProject\SQLiteTest Form\bin\Debug\System.Data.SQLite.Linq.dll
+D:\Desktop\ClonedProject\SQLiteTest Form\bin\Debug\EntityFramework.xml
+D:\Desktop\ClonedProject\SQLiteTest Form\bin\Debug\EntityFramework.SqlServer.xml
+D:\Desktop\ClonedProject\SQLiteTest Form\bin\Debug\System.Data.SQLite.xml
+D:\Desktop\ClonedProject\SQLiteTest Form\bin\Debug\System.Data.SQLite.dll.config
+D:\Desktop\ClonedProject\SQLiteTest Form\obj\Debug\SQLiteTest Form.csprojAssemblyReference.cache
+D:\Desktop\ClonedProject\SQLiteTest Form\obj\Debug\SQLiteTest_Form.Form1.resources
+D:\Desktop\ClonedProject\SQLiteTest Form\obj\Debug\SQLiteTest_Form.Properties.Resources.resources
+D:\Desktop\ClonedProject\SQLiteTest Form\obj\Debug\SQLiteTest Form.csproj.GenerateResource.cache
+D:\Desktop\ClonedProject\SQLiteTest Form\obj\Debug\SQLiteTest Form.csproj.CoreCompileInputs.cache
+D:\Desktop\ClonedProject\SQLiteTest Form\obj\Debug\SQLiteTest Form.csproj.CopyComplete
+D:\Desktop\ClonedProject\SQLiteTest Form\obj\Debug\SQLiteTest Form.exe
+D:\Desktop\ClonedProject\SQLiteTest Form\obj\Debug\SQLiteTest Form.pdb
+C:\Users\1\source\repos\SQLiteTest Form\SQLiteTest-Form-master\SQLiteTest Form\bin\Debug\SQLiteTest Form.exe.config
+C:\Users\1\source\repos\SQLiteTest Form\SQLiteTest-Form-master\SQLiteTest Form\bin\Debug\SQLiteTest Form.exe
+C:\Users\1\source\repos\SQLiteTest Form\SQLiteTest-Form-master\SQLiteTest Form\bin\Debug\SQLiteTest Form.pdb
+C:\Users\1\source\repos\SQLiteTest Form\SQLiteTest-Form-master\SQLiteTest Form\bin\Debug\EntityFramework.dll
+C:\Users\1\source\repos\SQLiteTest Form\SQLiteTest-Form-master\SQLiteTest Form\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\1\source\repos\SQLiteTest Form\SQLiteTest-Form-master\SQLiteTest Form\bin\Debug\System.Data.SQLite.dll
+C:\Users\1\source\repos\SQLiteTest Form\SQLiteTest-Form-master\SQLiteTest Form\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\1\source\repos\SQLiteTest Form\SQLiteTest-Form-master\SQLiteTest Form\bin\Debug\System.Data.SQLite.EF6.Migrations.dll
+C:\Users\1\source\repos\SQLiteTest Form\SQLiteTest-Form-master\SQLiteTest Form\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\1\source\repos\SQLiteTest Form\SQLiteTest-Form-master\SQLiteTest Form\bin\Debug\EntityFramework.xml
+C:\Users\1\source\repos\SQLiteTest Form\SQLiteTest-Form-master\SQLiteTest Form\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\1\source\repos\SQLiteTest Form\SQLiteTest-Form-master\SQLiteTest Form\bin\Debug\System.Data.SQLite.xml
+C:\Users\1\source\repos\SQLiteTest Form\SQLiteTest-Form-master\SQLiteTest Form\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\1\source\repos\SQLiteTest Form\SQLiteTest-Form-master\SQLiteTest Form\obj\Debug\SQLiteTest Form.csprojAssemblyReference.cache
+C:\Users\1\source\repos\SQLiteTest Form\SQLiteTest-Form-master\SQLiteTest Form\obj\Debug\SQLiteTest_Form.Form1.resources
+C:\Users\1\source\repos\SQLiteTest Form\SQLiteTest-Form-master\SQLiteTest Form\obj\Debug\SQLiteTest_Form.Properties.Resources.resources
+C:\Users\1\source\repos\SQLiteTest Form\SQLiteTest-Form-master\SQLiteTest Form\obj\Debug\SQLiteTest Form.csproj.GenerateResource.cache
+C:\Users\1\source\repos\SQLiteTest Form\SQLiteTest-Form-master\SQLiteTest Form\obj\Debug\SQLiteTest Form.csproj.CoreCompileInputs.cache
+C:\Users\1\source\repos\SQLiteTest Form\SQLiteTest-Form-master\SQLiteTest Form\obj\Debug\SQLiteTest Form.csproj.CopyComplete
+C:\Users\1\source\repos\SQLiteTest Form\SQLiteTest-Form-master\SQLiteTest Form\obj\Debug\SQLiteTest Form.exe
+C:\Users\1\source\repos\SQLiteTest Form\SQLiteTest-Form-master\SQLiteTest Form\obj\Debug\SQLiteTest Form.pdb
