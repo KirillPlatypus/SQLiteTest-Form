@@ -33,11 +33,11 @@
             this.INSERT = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.column1 = new System.Windows.Forms.TextBox();
+            this.id = new System.Windows.Forms.TextBox();
             this.name = new System.Windows.Forms.TextBox();
             this.app = new System.Windows.Forms.TextBox();
             this.date = new System.Windows.Forms.TextBox();
             this.coordinate = new System.Windows.Forms.TextBox();
-            this.Clear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SELECT
@@ -86,6 +86,14 @@
             this.column1.TabIndex = 5;
             this.column1.TextChanged += new System.EventHandler(this.column1_TextChanged);
             // 
+            // id
+            // 
+            this.id.Location = new System.Drawing.Point(616, 82);
+            this.id.Name = "id";
+            this.id.Size = new System.Drawing.Size(100, 22);
+            this.id.TabIndex = 6;
+            this.id.TextChanged += new System.EventHandler(this.id_TextChanged);
+            // 
             // name
             // 
             this.name.Location = new System.Drawing.Point(616, 111);
@@ -118,24 +126,14 @@
             this.coordinate.TabIndex = 10;
             this.coordinate.TextChanged += new System.EventHandler(this.coordinate_TextChanged);
             // 
-            // Clear
-            // 
-            this.Clear.Location = new System.Drawing.Point(645, 370);
-            this.Clear.Name = "Clear";
-            this.Clear.Size = new System.Drawing.Size(97, 79);
-            this.Clear.TabIndex = 11;
-            this.Clear.Text = "Clear";
-            this.Clear.UseVisualStyleBackColor = true;
-            this.Clear.Click += new System.EventHandler(this.Clear_Click);
-            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(754, 464);
-            this.Controls.Add(this.Clear);
             this.Controls.Add(this.coordinate);
             this.Controls.Add(this.date);
             this.Controls.Add(this.app);
             this.Controls.Add(this.name);
+            this.Controls.Add(this.id);
             this.Controls.Add(this.column1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.INSERT);
@@ -155,11 +153,11 @@
         private System.Windows.Forms.Button INSERT;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox column1;
+        private System.Windows.Forms.TextBox id;
         private System.Windows.Forms.TextBox name;
         private System.Windows.Forms.TextBox app;
         private System.Windows.Forms.TextBox date;
         private System.Windows.Forms.TextBox coordinate;
-        private System.Windows.Forms.Button Clear;
     }
 }
 

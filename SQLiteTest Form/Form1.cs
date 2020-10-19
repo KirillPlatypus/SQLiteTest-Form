@@ -17,14 +17,12 @@ namespace SQLiteTest_Form
         static PeopleToday today = new PeopleToday();
 
         string column;
-        int Id;
-        string value;
         List<PeopleToday> select = Command.Read<PeopleToday>.AnotherReadDB(today);
 
         public Form1()
         {
             InitializeComponent();
-            Id = select.Count;
+
         }
 
         internal List<PeopleToday> messege { get; set; }
@@ -51,10 +49,9 @@ namespace SQLiteTest_Form
 
         private void button2_Click(object sender, EventArgs e)
         {
-
-            today.id = ++Id;
-            value += $"{today.id}, ";
-            Command.Change<string>.Insert(column, value);
+            var Id = select.Count;
+            Command.Change<string>.Insert(Id++, name.Text, column);
+            
 
         }
 
@@ -68,38 +65,31 @@ namespace SQLiteTest_Form
         {
             column = column1.Text;
         }
-        
+
+        private void id_TextChanged(object sender, EventArgs e)
+        {
+            today.id = long.Parse(id.Text);
+        }
 
         private void name_TextChanged(object sender, EventArgs e)
         {
             today.name = name.Text;
-            value += $"{today.name}, "; 
 
         }
 
         private void app_TextChanged(object sender, EventArgs e)
         {
             today.app = app.Text;
-            value += $"{today.app}, ";
         }
 
         private void date_TextChanged(object sender, EventArgs e)
         {
             today.date = long.Parse(date.Text);
-            value += $"{today.date}, ";
-
         }
 
         private void coordinate_TextChanged(object sender, EventArgs e)
         {
             today.coordinate = coordinate.Text;
-            value += $"{today.coordinate} ";
-
-        }
-
-        private void Clear_Click(object sender, EventArgs e)
-        {
-            textBox2.Text = "";
         }
     }
 }

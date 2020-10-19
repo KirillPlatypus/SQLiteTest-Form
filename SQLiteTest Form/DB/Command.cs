@@ -119,9 +119,9 @@ namespace SQLiteTest_Form.DB
                     //ConnectDB.CloseConnection();
                 }
             }
-            public static void Insert(string column, string value)
+            public static void Insert(long id, T number, string column)
             {
-                using (var command = new SQLiteCommand($"INSERT INTO PeopleToday ({column}) VALUES ('{value}'); ", ConnectDB.connect))
+                using (var command = new SQLiteCommand($"INSERT INTO PeopleToday ({column}) VALUES ('{number}'); ", ConnectDB.connect))
                 {
 
                     ConnectDB.OpenConnection();
