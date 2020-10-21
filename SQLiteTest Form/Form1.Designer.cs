@@ -38,6 +38,7 @@
             this.app = new System.Windows.Forms.TextBox();
             this.date = new System.Windows.Forms.TextBox();
             this.coordinate = new System.Windows.Forms.TextBox();
+            this.Clear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SELECT
@@ -126,9 +127,20 @@
             this.coordinate.TabIndex = 10;
             this.coordinate.TextChanged += new System.EventHandler(this.coordinate_TextChanged);
             // 
+            // Clear
+            // 
+            this.Clear.Location = new System.Drawing.Point(616, 370);
+            this.Clear.Name = "Clear";
+            this.Clear.Size = new System.Drawing.Size(126, 82);
+            this.Clear.TabIndex = 11;
+            this.Clear.Text = "Clear";
+            this.Clear.UseVisualStyleBackColor = true;
+            this.Clear.Click += new System.EventHandler(this.Clear_Click);
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(754, 464);
+            this.Controls.Add(this.Clear);
             this.Controls.Add(this.coordinate);
             this.Controls.Add(this.date);
             this.Controls.Add(this.app);
@@ -158,6 +170,7 @@
         private System.Windows.Forms.TextBox app;
         private System.Windows.Forms.TextBox date;
         private System.Windows.Forms.TextBox coordinate;
+        private System.Windows.Forms.Button Clear;
     }
 }
 
