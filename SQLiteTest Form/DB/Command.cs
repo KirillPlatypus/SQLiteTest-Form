@@ -12,7 +12,6 @@ namespace SQLiteTest_Form.DB
     class Command
     {
         static ConnectDB ConnectDB;
-        static PeopleToday todays = new PeopleToday();
         public Command(ConnectDB connectDB)
         {
            ConnectDB = connectDB;
@@ -41,18 +40,9 @@ namespace SQLiteTest_Form.DB
                         {
                             try
                             {
-                                if (result[nameColumn] != DBNull.Value)
-                                {
-                                    column.Add((T)result[nameColumn]);
-                                }
-                                else
-                                {
-                                    
-                                    Change<PeopleToday>.Update(1, 0, nameColumn);
-                                    Change<PeopleToday>.Update(2, 0, nameColumn);
-                                    Change<PeopleToday>.Update(3, 0, nameColumn);
-                                    Change<PeopleToday>.Update(4, 0, nameColumn);
-                                }
+
+                                column.Add((T)result[nameColumn]);
+
                             }
                             catch (System.IndexOutOfRangeException)
                             {
@@ -101,43 +91,51 @@ namespace SQLiteTest_Form.DB
         }
         public static class Change<T>
         {
-            public static void Update(long id, long number, string column)
+            public static void Update(long id, PeopleToday today, string[] column)
             {
-                using (var command = new SQLiteCommand($"UPDATE PeopleToday SET {column} = '{number}' WHERE Id = {id}; ", ConnectDB.connect))
+                using (var command = new SQLiteCommand($"UPDATE PeopleToday SET " +
+                    $"{column[0]} = '{today.id}'," +
+                    $"{column[1]} = '{today.name}', " +
+                    $"{column[2]} = '{today.app}'," +
+                    $"{column[3]} = '{today.date}'," +
+                    $"{column[4]} = '{today.coordinate}' " +
+                    $"WHERE Id = {id}; ", ConnectDB.connect))
                 {
 
                     ConnectDB.OpenConnection();
-
-                    //command.Parameters.AddWithValue("@Id", id);
-                    //command.Parameters.AddWithValue("@Name", "Lara");
-                    //command.Parameters.AddWithValue("@App", "DrakeHub");
-                    //command.Parameters.AddWithValue($"@{column}", number.ToString());
-                    //command.Parameters.AddWithValue("@Date", 900);
-
-                    var result = command.ExecuteReader();
-
-                    //ConnectDB.CloseConnection();
-                }
-            }
-            public static void Insert(string column, PeopleToday today)
-            {
-                using (var command = new SQLiteCommand($"INSERT INTO PeopleToday ({column}) VALUES ('{today.id}, {today.name}, " +
-                    $"{today.app}, {today.date}, {today.coordinate}'); ", ConnectDB.connect))
-                {
-
-                    ConnectDB.OpenConnection();
-
-                    //command.Parameters.AddWithValue("@Id", id);
-                    //command.Parameters.AddWithValue("@Name", "Lara");
-                    //command.Parameters.AddWithValue("@App", "DrakeHub");
-                    //command.Parameters.AddWithValue($"@{column}", number.ToString());
-                    //command.Parameters.AddWithValue("@Date", 900);
 
                     var result = command.ExecuteReader();
 
                     ConnectDB.CloseConnection();
                 }
             }
+
+            public static void Insert(string[] column, PeopleToday today)
+            {
+                using (var command = new SQLiteCommand($"INSERT INTO PeopleToday ({column[0]}, {column[1]}, {column[2]}, {column[3]}, {column[4]})" +
+                    $" VALUES ('{today.id}', '{today.name}', '{today.app}', '{today.date}', '{today.coordinate}'); ", ConnectDB.connect))
+                {
+
+                    ConnectDB.OpenConnection();
+
+                    var result = command.ExecuteReader();
+
+                    ConnectDB.CloseConnection();
+                }
+            }
+
+            public static void Delete(long id)
+            {
+                using (var command = new SQLiteCommand($"DELETE FROM PeopleToday WHERE Id = {id};", ConnectDB.connect))
+                {
+                    ConnectDB.OpenConnection();
+                    
+                    var result = command.ExecuteReader();
+
+                    ConnectDB.CloseConnection();
+                }
+            }
+            
 
         }
     }

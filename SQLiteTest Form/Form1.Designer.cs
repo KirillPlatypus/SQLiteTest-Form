@@ -31,7 +31,7 @@
             this.SELECT = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.INSERT = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.UPDATE = new System.Windows.Forms.Button();
             this.column1 = new System.Windows.Forms.TextBox();
             this.id = new System.Windows.Forms.TextBox();
             this.name = new System.Windows.Forms.TextBox();
@@ -39,13 +39,20 @@
             this.date = new System.Windows.Forms.TextBox();
             this.coordinate = new System.Windows.Forms.TextBox();
             this.Clear = new System.Windows.Forms.Button();
+            this.DELETE = new System.Windows.Forms.Button();
+            this.Column = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // SELECT
             // 
             this.SELECT.Location = new System.Drawing.Point(12, 370);
             this.SELECT.Name = "SELECT";
-            this.SELECT.Size = new System.Drawing.Size(144, 79);
+            this.SELECT.Size = new System.Drawing.Size(108, 78);
             this.SELECT.TabIndex = 0;
             this.SELECT.Text = "SELECT";
             this.SELECT.UseVisualStyleBackColor = true;
@@ -61,27 +68,27 @@
             // 
             // INSERT
             // 
-            this.INSERT.Location = new System.Drawing.Point(183, 370);
+            this.INSERT.Location = new System.Drawing.Point(136, 370);
             this.INSERT.Name = "INSERT";
-            this.INSERT.Size = new System.Drawing.Size(144, 80);
+            this.INSERT.Size = new System.Drawing.Size(108, 78);
             this.INSERT.TabIndex = 3;
             this.INSERT.Text = "INSERT";
             this.INSERT.UseVisualStyleBackColor = true;
             this.INSERT.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // UPDATE
             // 
-            this.button1.Location = new System.Drawing.Point(352, 370);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(144, 79);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "UPDATE";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.UPDATE.Location = new System.Drawing.Point(263, 370);
+            this.UPDATE.Name = "UPDATE";
+            this.UPDATE.Size = new System.Drawing.Size(108, 78);
+            this.UPDATE.TabIndex = 4;
+            this.UPDATE.Text = "UPDATE";
+            this.UPDATE.UseVisualStyleBackColor = true;
+            this.UPDATE.Click += new System.EventHandler(this.button1_Click);
             // 
             // column1
             // 
-            this.column1.Location = new System.Drawing.Point(616, 32);
+            this.column1.Location = new System.Drawing.Point(642, 33);
             this.column1.Name = "column1";
             this.column1.Size = new System.Drawing.Size(100, 22);
             this.column1.TabIndex = 5;
@@ -89,7 +96,7 @@
             // 
             // id
             // 
-            this.id.Location = new System.Drawing.Point(616, 82);
+            this.id.Location = new System.Drawing.Point(642, 87);
             this.id.Name = "id";
             this.id.Size = new System.Drawing.Size(100, 22);
             this.id.TabIndex = 6;
@@ -97,7 +104,7 @@
             // 
             // name
             // 
-            this.name.Location = new System.Drawing.Point(616, 111);
+            this.name.Location = new System.Drawing.Point(642, 115);
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(100, 22);
             this.name.TabIndex = 7;
@@ -105,7 +112,7 @@
             // 
             // app
             // 
-            this.app.Location = new System.Drawing.Point(616, 140);
+            this.app.Location = new System.Drawing.Point(642, 143);
             this.app.Name = "app";
             this.app.Size = new System.Drawing.Size(100, 22);
             this.app.TabIndex = 8;
@@ -113,7 +120,7 @@
             // 
             // date
             // 
-            this.date.Location = new System.Drawing.Point(616, 168);
+            this.date.Location = new System.Drawing.Point(642, 171);
             this.date.Name = "date";
             this.date.Size = new System.Drawing.Size(100, 22);
             this.date.TabIndex = 9;
@@ -121,7 +128,7 @@
             // 
             // coordinate
             // 
-            this.coordinate.Location = new System.Drawing.Point(616, 197);
+            this.coordinate.Location = new System.Drawing.Point(642, 199);
             this.coordinate.Name = "coordinate";
             this.coordinate.Size = new System.Drawing.Size(100, 22);
             this.coordinate.TabIndex = 10;
@@ -137,9 +144,80 @@
             this.Clear.UseVisualStyleBackColor = true;
             this.Clear.Click += new System.EventHandler(this.Clear_Click);
             // 
+            // DELETE
+            // 
+            this.DELETE.Location = new System.Drawing.Point(394, 370);
+            this.DELETE.Name = "DELETE";
+            this.DELETE.Size = new System.Drawing.Size(108, 78);
+            this.DELETE.TabIndex = 12;
+            this.DELETE.Text = "DELETE";
+            this.DELETE.UseVisualStyleBackColor = true;
+            this.DELETE.Click += new System.EventHandler(this.DELETE_Click);
+            // 
+            // Column
+            // 
+            this.Column.AutoSize = true;
+            this.Column.Location = new System.Drawing.Point(548, 36);
+            this.Column.Name = "Column";
+            this.Column.Size = new System.Drawing.Size(55, 17);
+            this.Column.TabIndex = 13;
+            this.Column.Text = "Column";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(548, 87);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(19, 17);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Id";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(548, 115);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 17);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Name";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(548, 143);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(33, 17);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "App";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(548, 171);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(38, 17);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Date";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(548, 199);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(77, 17);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "Coordinate";
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(754, 464);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Column);
+            this.Controls.Add(this.DELETE);
             this.Controls.Add(this.Clear);
             this.Controls.Add(this.coordinate);
             this.Controls.Add(this.date);
@@ -147,7 +225,7 @@
             this.Controls.Add(this.name);
             this.Controls.Add(this.id);
             this.Controls.Add(this.column1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.UPDATE);
             this.Controls.Add(this.INSERT);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.SELECT);
@@ -163,7 +241,7 @@
         private System.Windows.Forms.Button SELECT;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button INSERT;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button UPDATE;
         private System.Windows.Forms.TextBox column1;
         private System.Windows.Forms.TextBox id;
         private System.Windows.Forms.TextBox name;
@@ -171,6 +249,13 @@
         private System.Windows.Forms.TextBox date;
         private System.Windows.Forms.TextBox coordinate;
         private System.Windows.Forms.Button Clear;
+        private System.Windows.Forms.Button DELETE;
+        private System.Windows.Forms.Label Column;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }
 

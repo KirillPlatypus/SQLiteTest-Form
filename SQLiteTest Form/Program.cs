@@ -15,9 +15,10 @@ namespace SQLiteTest_Form
         static string Path = "Data Source=C:/Users/1/source/repos/SQLiteTest Form/SQLiteTest Form/bin/Debug/PeopleList1.db";
 
         static ConnectDB connectDB = new ConnectDB(Path);
-        static PeopleToday today = new PeopleToday();
-        static Command command = new Command(connectDB);
-        static LibraryContext commandC = new LibraryContext();
+        internal static PeopleToday today = new PeopleToday();
+        internal static Command command = new Command(connectDB);
+        internal static string[] column = { "Id", "Name", "App", "Date", "coordinate" };
+        internal static int Id;
 
         [STAThread]
         static void Main()
