@@ -11,6 +11,7 @@ namespace SQLite3Test
         public string name { get; set; }
         public string app { get; set; }
         public string coordinate { get; set; }
-        public long date { get; set; }  
+        public long date { get; set; }
+        public string place { get; set; }
     }
 }

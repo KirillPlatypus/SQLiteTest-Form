@@ -4,3 +4,5 @@
 *.db-journal
 .pdb
 *.pdb
+*.force
+runtimes/

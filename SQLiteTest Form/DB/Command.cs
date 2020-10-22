@@ -6,12 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using SQLiteTest_Form.Migration;
 
 namespace SQLiteTest_Form.DB
 {
     class Command
     {
+        static Migrate1 migrate1;
+
         static ConnectDB ConnectDB;
+
         public Command(ConnectDB connectDB)
         {
            ConnectDB = connectDB;
@@ -63,9 +67,10 @@ namespace SQLiteTest_Form.DB
             {
                 using (LibraryContext context = new LibraryContext())
                 {
+                    context.ChangeTracker.DetectChanges();
 
                     context.PeopleToday.Add(today);
-                    
+
                     try
                     {
                         context.SaveChanges();
@@ -76,12 +81,8 @@ namespace SQLiteTest_Form.DB
                     }
                     catch(System.Data.Entity.Infrastructure.DbUpdateException) 
                     {
-                        ConnectDB.OpenConnection();
-
-                        var commandALT = new SQLiteCommand($"ALTER TABLE PeopleToday\n ADD COLUMN coordinate text;", ConnectDB.connect);
-                        var resultALT = commandALT.ExecuteReader();
-                        ConnectDB.CloseConnection();
-
+                        migrate1 = new Migrate1("place", ConnectDB);
+                        migrate1.AddColumn();
                     }
                     return context.PeopleToday.ToList();
                 }
@@ -91,7 +92,7 @@ namespace SQLiteTest_Form.DB
         }
         public static class Change<T>
         {
-            public static void Update(long id, PeopleToday today, string[] column)
+            public static void Update(long id, PeopleToday today, List<string> column)
             {
                 using (var command = new SQLiteCommand($"UPDATE PeopleToday SET " +
                     $"{column[0]} = '{today.id}'," +
@@ -110,7 +111,7 @@ namespace SQLiteTest_Form.DB
                 }
             }
 
-            public static void Insert(string[] column, PeopleToday today)
+            public static void Insert(List<string> column, PeopleToday today)
             {
                 using (var command = new SQLiteCommand($"INSERT INTO PeopleToday ({column[0]}, {column[1]}, {column[2]}, {column[3]}, {column[4]})" +
                     $" VALUES ('{today.id}', '{today.name}', '{today.app}', '{today.date}', '{today.coordinate}'); ", ConnectDB.connect))
@@ -135,8 +136,6 @@ namespace SQLiteTest_Form.DB
                     ConnectDB.CloseConnection();
                 }
             }
-            
-
         }
     }
 }
