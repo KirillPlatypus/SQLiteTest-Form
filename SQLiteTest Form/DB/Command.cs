@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using SQLiteTest_Form.Migration;
+using System.Data;
 
 namespace SQLiteTest_Form.DB
 {
@@ -23,12 +24,11 @@ namespace SQLiteTest_Form.DB
 
         public static class Read<T>
         {
-            private const char sqlite3_version = '0';
             static List<T> column = new List<T>();
 
             public static List<T> ReadDB(string nameColumn)
             {
-                using (var command = new SQLiteCommand("SELECT sqlite_version();", ConnectDB.connect))
+                using (var command = new SQLiteCommand("SELECT * FROM PeopleToday", ConnectDB.connect))
                 {
 
                     if (column.Count > 0)
@@ -37,10 +37,8 @@ namespace SQLiteTest_Form.DB
                     }
 
                     ConnectDB.OpenConnection();
-
                     var result = command.ExecuteReader();
-                    if (result.HasRows)
-                    {
+                    
                         for (int i = 0; result.Read(); i++)
                         {
                             try
@@ -51,13 +49,13 @@ namespace SQLiteTest_Form.DB
                             }
                             catch (System.IndexOutOfRangeException)
                             {
-                                i--;
+                                --i;
                                 var commandALT = new SQLiteCommand($"ALTER TABLE PeopleToday ADD COLUMN {nameColumn} text;", ConnectDB.connect);
                                 var resultALT = commandALT.ExecuteReader();
 
                             }
                         }
-                    }
+                    
                     ConnectDB.CloseConnection();
                 }
                 return column;
@@ -68,8 +66,6 @@ namespace SQLiteTest_Form.DB
             {
                 using (LibraryContext context = new LibraryContext())
                 {
-                    context.ChangeTracker.DetectChanges();
-
                     context.PeopleToday.Add(today);
 
                     try
@@ -154,6 +150,18 @@ namespace SQLiteTest_Form.DB
 
                     ConnectDB.CloseConnection();
                 }
+            }
+        }
+        public void Pragma()
+        {
+
+            using (var command = new SQLiteCommand($"PRAGMA user_version = 0", ConnectDB.connect))
+            {
+                ConnectDB.OpenConnection();
+
+                var result = command.ExecuteReader();
+
+                ConnectDB.CloseConnection();
             }
         }
     }
