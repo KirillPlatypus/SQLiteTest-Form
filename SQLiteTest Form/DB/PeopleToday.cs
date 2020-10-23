@@ -13,5 +13,6 @@ namespace SQLite3Test
         public string coordinate { get; set; }
         public long date { get; set; }
         public string place { get; set; }
+        public string gender { get; set; }
     }
 }

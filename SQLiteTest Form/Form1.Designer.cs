@@ -40,14 +40,16 @@
             this.coordinate = new System.Windows.Forms.TextBox();
             this.Clear = new System.Windows.Forms.Button();
             this.DELETE = new System.Windows.Forms.Button();
-            this.Column = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.Place = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.Gander = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // SELECT
@@ -156,15 +158,6 @@
             this.DELETE.UseVisualStyleBackColor = true;
             this.DELETE.Click += new System.EventHandler(this.DELETE_Click);
             // 
-            // Column
-            // 
-            this.Column.AutoSize = true;
-            this.Column.Location = new System.Drawing.Point(548, 36);
-            this.Column.Name = "Column";
-            this.Column.Size = new System.Drawing.Size(55, 17);
-            this.Column.TabIndex = 13;
-            this.Column.Text = "Column";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -201,15 +194,6 @@
             this.label4.TabIndex = 17;
             this.label4.Text = "Date";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(548, 199);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 17);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "Coordinate";
-            // 
             // Place
             // 
             this.Place.Location = new System.Drawing.Point(642, 228);
@@ -221,23 +205,60 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(548, 228);
+            this.label6.Location = new System.Drawing.Point(548, 231);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(43, 17);
             this.label6.TabIndex = 20;
             this.label6.Text = "Place";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(548, 199);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(77, 17);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "Coordinate";
+            // 
+            // Gander
+            // 
+            this.Gander.Location = new System.Drawing.Point(642, 256);
+            this.Gander.Name = "Gander";
+            this.Gander.Size = new System.Drawing.Size(100, 22);
+            this.Gander.TabIndex = 22;
+            this.Gander.TextChanged += new System.EventHandler(this.Gander_TextChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(548, 256);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(56, 17);
+            this.label7.TabIndex = 23;
+            this.label7.Text = "Gender";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(548, 33);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(55, 17);
+            this.label8.TabIndex = 24;
+            this.label8.Text = "Column";
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(754, 464);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.Gander);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.Place);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.Column);
             this.Controls.Add(this.DELETE);
             this.Controls.Add(this.Clear);
             this.Controls.Add(this.coordinate);
@@ -271,14 +292,16 @@
         private System.Windows.Forms.TextBox coordinate;
         private System.Windows.Forms.Button Clear;
         private System.Windows.Forms.Button DELETE;
-        private System.Windows.Forms.Label Column;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox Place;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox Gander;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }
 

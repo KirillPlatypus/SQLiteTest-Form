@@ -16,7 +16,8 @@ namespace SQLiteTest_Form
     {
 
         List<PeopleToday> select = Command.Read<PeopleToday>.AnotherReadDB(Program.today);
-        
+        const char sqlite3_version = '0';
+
         public Form1()
         {
             InitializeComponent();
@@ -37,6 +38,7 @@ namespace SQLiteTest_Form
                 $" {select[i].date} " +
                 $" {select[i].coordinate} " +
                 $" {select[i].place} " +
+                $" {select[i].gender} " +
                 $" {Environment.NewLine}";
             }
         }
@@ -89,7 +91,6 @@ namespace SQLiteTest_Form
 
         private void column1_TextChanged(object sender, EventArgs e)
         {
-            //Program.column = column1.Text;
 
         }
 
@@ -107,17 +108,20 @@ namespace SQLiteTest_Form
 
         private void name_TextChanged(object sender, EventArgs e)
         {
+
             Program.today.name = name.Text;
 
         }
 
         private void app_TextChanged(object sender, EventArgs e)
         {
+
             Program.today.app = app.Text;
         }
 
         private void date_TextChanged(object sender, EventArgs e)
         {
+
             try
             {
                 Program.today.date = long.Parse(date.Text);
@@ -130,6 +134,7 @@ namespace SQLiteTest_Form
 
         private void coordinate_TextChanged(object sender, EventArgs e)
         {
+
             Program.today.coordinate = coordinate.Text;
         }
 
@@ -140,7 +145,14 @@ namespace SQLiteTest_Form
 
         private void Place_TextChanged(object sender, EventArgs e)
         {
+
             Program.today.place = Place.Text;
+        }
+
+        private void Gander_TextChanged(object sender, EventArgs e)
+        {
+
+            Program.today.gender = Gander.Text;
         }
     }
 }

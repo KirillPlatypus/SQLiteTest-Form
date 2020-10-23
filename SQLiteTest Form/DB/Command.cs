@@ -23,11 +23,12 @@ namespace SQLiteTest_Form.DB
 
         public static class Read<T>
         {
+            private const char sqlite3_version = '0';
             static List<T> column = new List<T>();
 
             public static List<T> ReadDB(string nameColumn)
             {
-                using (var command = new SQLiteCommand("SELECT * FROM PeopleToday", ConnectDB.connect))
+                using (var command = new SQLiteCommand("SELECT sqlite_version();", ConnectDB.connect))
                 {
 
                     if (column.Count > 0)
@@ -51,7 +52,7 @@ namespace SQLiteTest_Form.DB
                             catch (System.IndexOutOfRangeException)
                             {
                                 i--;
-                                var commandALT = new SQLiteCommand($"ALTER TABLE PeopleToday\n ADD COLUMN {nameColumn} text;", ConnectDB.connect);
+                                var commandALT = new SQLiteCommand($"ALTER TABLE PeopleToday ADD COLUMN {nameColumn} text;", ConnectDB.connect);
                                 var resultALT = commandALT.ExecuteReader();
 
                             }
@@ -81,7 +82,7 @@ namespace SQLiteTest_Form.DB
                     }
                     catch(System.Data.Entity.Infrastructure.DbUpdateException) 
                     {
-                        migrate1 = new Migrate1("place", ConnectDB);
+                        migrate1 = new Migrate1("Gender", ConnectDB);
                         migrate1.AddColumn();
                     }
                     return context.PeopleToday.ToList();
@@ -95,12 +96,12 @@ namespace SQLiteTest_Form.DB
             public static void Update(long id, PeopleToday today, List<string> column)
             {
                 using (var command = new SQLiteCommand($"UPDATE PeopleToday SET " +
-                    $"{column[0]} = '{today.id}'," +
                     $"{column[1]} = '{today.name}', " +
                     $"{column[2]} = '{today.app}'," +
                     $"{column[3]} = '{today.date}'," +
                     $"{column[4]} = '{today.coordinate}'," +
-                    $"{column[5]} = '{today.place}'" +
+                    $"{column[5]} = '{today.place}'," +
+                    $"{column[6]} = '{today.gender}'" +
                     $"WHERE Id = {id}; ", ConnectDB.connect))
                 {
 
@@ -130,7 +131,8 @@ namespace SQLiteTest_Form.DB
                     $" '{today.app}', " +
                     $" '{today.date}', " +
                     $" '{today.coordinate}', " +
-                    $" '{today.place}');" +
+                    $" '{today.place}', " +
+                    $" '{today.gender}');" +
                     $" ", ConnectDB.connect))
                 {
 

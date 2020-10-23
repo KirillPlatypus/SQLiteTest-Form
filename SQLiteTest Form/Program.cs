@@ -18,7 +18,7 @@ namespace SQLiteTest_Form
         internal static PeopleToday today = new PeopleToday();
         internal static Command command = new Command(connectDB);
 
-        internal static List<string> column = new List<string>{ "Id", "Name", "App", "Date", "coordinate", "place" };
+        internal static List<string> column = new List<string>();
         internal static int Id;
 
         [STAThread]
@@ -26,6 +26,14 @@ namespace SQLiteTest_Form
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            column.Add("Id");
+            column.Add("Name");
+            column.Add("App");
+            column.Add("Date");
+            column.Add("coordinate");
+            column.Add("Place");
+            column.Add("Gender");
 
             Application.Run(new Form1()
             
