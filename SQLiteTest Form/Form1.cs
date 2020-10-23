@@ -36,6 +36,7 @@ namespace SQLiteTest_Form
                 $" {select[i].app} " +
                 $" {select[i].date} " +
                 $" {select[i].coordinate} " +
+                $" {select[i].place} " +
                 $" {Environment.NewLine}";
             }
         }
@@ -135,6 +136,11 @@ namespace SQLiteTest_Form
         private void label5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Place_TextChanged(object sender, EventArgs e)
+        {
+            Program.today.place = Place.Text;
         }
     }
 }

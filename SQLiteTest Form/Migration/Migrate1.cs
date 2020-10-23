@@ -21,7 +21,7 @@ namespace SQLiteTest_Form.Migration
 
         public void AddColumn()
         {
-            Program.column.Add("{column}");
+            Program.column.Add($"{Column}");
 
             ConnectDB.OpenConnection();
 

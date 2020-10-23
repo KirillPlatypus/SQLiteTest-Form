@@ -18,7 +18,7 @@ namespace SQLiteTest_Form
         internal static PeopleToday today = new PeopleToday();
         internal static Command command = new Command(connectDB);
 
-        internal static List<string> column = new List<string>{ "Id", "Name", "App", "Date", "coordinate" };
+        internal static List<string> column = new List<string>{ "Id", "Name", "App", "Date", "coordinate", "place" };
         internal static int Id;
 
         [STAThread]

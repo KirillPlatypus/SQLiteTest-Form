@@ -46,6 +46,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.Place = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // SELECT
@@ -208,9 +210,28 @@
             this.label5.TabIndex = 18;
             this.label5.Text = "Coordinate";
             // 
+            // Place
+            // 
+            this.Place.Location = new System.Drawing.Point(642, 228);
+            this.Place.Name = "Place";
+            this.Place.Size = new System.Drawing.Size(100, 22);
+            this.Place.TabIndex = 19;
+            this.Place.TextChanged += new System.EventHandler(this.Place_TextChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(548, 228);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(43, 17);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Place";
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(754, 464);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.Place);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -256,6 +277,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox Place;
+        private System.Windows.Forms.Label label6;
     }
 }
 

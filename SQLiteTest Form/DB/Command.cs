@@ -99,7 +99,8 @@ namespace SQLiteTest_Form.DB
                     $"{column[1]} = '{today.name}', " +
                     $"{column[2]} = '{today.app}'," +
                     $"{column[3]} = '{today.date}'," +
-                    $"{column[4]} = '{today.coordinate}' " +
+                    $"{column[4]} = '{today.coordinate}'," +
+                    $"{column[5]} = '{today.place}'" +
                     $"WHERE Id = {id}; ", ConnectDB.connect))
                 {
 
@@ -113,8 +114,24 @@ namespace SQLiteTest_Form.DB
 
             public static void Insert(List<string> column, PeopleToday today)
             {
-                using (var command = new SQLiteCommand($"INSERT INTO PeopleToday ({column[0]}, {column[1]}, {column[2]}, {column[3]}, {column[4]})" +
-                    $" VALUES ('{today.id}', '{today.name}', '{today.app}', '{today.date}', '{today.coordinate}'); ", ConnectDB.connect))
+                string allColumn = "";
+                for (int i = 0; i < column.Count; i++)
+                {
+                    if(i == 0) 
+                    {
+                        allColumn += $"{column[i]}";
+                        continue;
+                    }
+                    allColumn += $", {column[i]}";
+                }
+                using (var command = new SQLiteCommand($"INSERT INTO PeopleToday ({allColumn})" +
+                    $" VALUES ('{today.id}', " +
+                    $" '{today.name}', " +
+                    $" '{today.app}', " +
+                    $" '{today.date}', " +
+                    $" '{today.coordinate}', " +
+                    $" '{today.place}');" +
+                    $" ", ConnectDB.connect))
                 {
 
                     ConnectDB.OpenConnection();
